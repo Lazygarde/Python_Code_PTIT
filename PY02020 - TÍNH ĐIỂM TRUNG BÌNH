@@ -1,0 +1,17 @@
+# Lazygarde
+
+n = int(input())
+a = [float(x) for x in input().split()]
+Max = 0
+Min = 20
+s = 0
+cntMax = 0
+cntMin = 0
+for i in a :
+    Max = max(Max, i)
+    Min = min(Min, i)
+    s += i
+for i in a :
+    if i == Max : cntMax += 1
+    if i == Min : cntMin += 1
+print("{:.2f}".format((s - cntMax * Max - cntMin * Min) / (n - cntMax -cntMin)))
