@@ -8,27 +8,12 @@ def era() :
         if a[i] == 0 :
             for j in range(i * i, 1000001, i) : a[j] = 1
 
-def rev(n) :
-    s = list(str(n))
-    s.reverse()
-    return int(''.join(s))
-
-def check(n) :
-    k = rev(n)
-    if n == k or a[n] == 1 or a[k] == 1 : return 0
-    return 1
-
 era()
-b = []
-for i in range(1, 1000000) :
-    if check(i) == 1 : b.append(i)
 t = int(input())
 for i in range(t) :
     n = int(input())
-    p = 0
-    while b[p] < n :
-        k = rev(b[p])
-        if k < n and b[p] < k :
-            print(b[p], k, end = ' ')
-        p += 1
+    for i in range(1, n) :
+        k = int(str(i)[::-1])
+        if k > i and k < n and a[i] == 0 and a[k] == 0 :
+            print(i, k, end = ' ')
     print()
